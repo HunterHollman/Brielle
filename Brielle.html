@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Valentine.exe ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      width: 420px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      background-color: #f1f1f1;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background-color: #ffe0e8;
+    }
+
+    .correct {
+      background-color: #a3f7bf !important;
+    }
+
+    .wrong {
+      background-color: #ffb3c1 !important;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background-color: #ccc;
+      position: relative;
+    }
+
+    .heart {
+      font-size: 40px;
+      animation: float 2s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card"></div>
+
+  <script>
+    let currentQuestion = 0;
+
+    const questions = [
+      {
+        question: "Who is my favorite artist?",
+        answers: ["Jonas Brothers", "Harry Styles", "5SOS", "Riley Green"],
+        correct: 1
+      },
+      {
+        question: "What’s my biggest weakness?",
+        answers: ["Skipping leg day", "Overthinking", "Buying gadgets", "You"],
+        correct: 3
+      },
+      {
+        question: "What bat did I use in college?",
+        answers: ["Easton Stealth", "Marucci Cat", "Louisville Slugger", "Mako Orange"],
+        correct: 1
+      },
+      {
+        question: "How many littles did I have?",
+        answers: ["1", "2", "3", "4"],
+        correct: 2
+      },
+{
+        question: "What was the name of my Pig?",
+        answers: ["Cornelius", "Harrison", "Curtis", "Alfred"],
+        correct: 0
+      },
+{
+        question: "What do I tell people my favorite movie is?",
+        answers: ["Pitch Perfect", "Star Wars", "Kingsman", "Inception"],
+        correct: 3
+      },
+{
+        question: "What is actually my favorite movie?",
+        answers: ["Pitch Perfect", "The Social Network", "Kingsman", "Spider-Man 2"],
+        correct: 2
+      },
+{
+        question: "What is the video game I play with Jack",
+        answers: ["Call of Duty", "Counter Strike Global Offensive (CSGO)", "Fortnite", "Battlefield"],
+        correct: 1
+      },
+{
+        question: "How many hours do I have in this game...?",
+        answers: ["260 Hours", "94 Hours", "381 Hours", "1,781 Hours"],
+        correct: 3
+      },
+{
+        question: "Who convinced me to go on our first date while I was trying to back out?",
+        answers: ["Nick", "Brady", "Rob", "Tanner"],
+        correct: 0
+      }
+    ];
+
+    function start() {
+      document.getElementById("card").innerHTML = `
+        <h1>Welcome, Brielle 💖</h1>
+        <p>Before proceeding…<br>You must prove you know your boyfriend.</p>
+        <button class="yes" onclick="loadQuestion()">Start the Challenge</button>
+      `;
+    }
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      let buttons = "";
+
+      q.answers.forEach((answer, index) => {
+        buttons += `<button onclick="checkAnswer(${index}, this)">${answer}</button>`;
+      });
+
+      document.getElementById("card").innerHTML = `
+        <h1>Question ${currentQuestion + 1} / ${questions.length}</h1>
+        <p>${q.question}</p>
+        ${buttons}
+      `;
+    }
+
+    function checkAnswer(index, btn) {
+      const q = questions[currentQuestion];
+      const buttons = document.querySelectorAll("button");
+
+      buttons.forEach(b => b.disabled = true);
+
+      if (index === q.correct) {
+        btn.classList.add("correct");
+        setTimeout(() => {
+          currentQuestion++;
+          if (currentQuestion < questions.length) {
+            loadQuestion();
+          } else {
+            finalScreen();
+          }
+        }, 700);
+      } else {
+        btn.classList.add("wrong");
+
+        setTimeout(() => {
+          currentQuestion = 0;
+          start();
+        }, 900);
+      }
+    }
+
+    function finalScreen() {
+      document.getElementById("card").innerHTML = `
+        <div class="heart">❤️</div>
+        <h1>Impressive.</h1>
+        <p>You clearly know me…<br>so here’s the real question.</p>
+        <button class="yes" onclick="askValentine()">Continue</button>
+      `;
+    }
+
+  function askValentine() {
+  document.getElementById("card").innerHTML = `
+    <h1>Will you be my Valentine?</h1>
+    <p>Not just today — but every day.</p>
+    <button class="yes" onclick="finalYes()">Yes</button>
+    <button class="no" id="noBtn">No</button>
+  `;
+
+  const noBtn = document.getElementById("noBtn");
+
+  document.addEventListener("mousemove", (e) => {
+    const rect = noBtn.getBoundingClientRect();
+
+    const distanceX = Math.abs(e.clientX - (rect.left + rect.width / 2));
+    const distanceY = Math.abs(e.clientY - (rect.top + rect.height / 2));
+
+    if (distanceX < 90 && distanceY < 45) {
+      dodgeAndTaunt(noBtn);
+    }
+  });
+}
+
+let tauntCount = 0;
+
+const taunts = [
+  "Nice try 😌",
+  "Absolutely not",
+  "You know better",
+  "That’s the wrong button",
+  "Be serious right now",
+  "Try again 😏",
+  "Bold of you to try",
+  "Incorrect choice",
+  "Denied ❌",
+  "We both know the answer",
+  "Sorry... not sorry",
+  "Not todayyyyy"
+];
+
+
+function dodgeAndTaunt(btn) {
+  tauntCount++;
+
+  const card = document.getElementById("card");
+  const cardRect = card.getBoundingClientRect();
+
+  const maxX = cardRect.width - btn.offsetWidth;
+  const maxY = cardRect.height - btn.offsetHeight;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+
+  // Escalate taunts
+  let tauntIndex = Math.min(tauntCount - 1, taunts.length - 1);
+  btn.innerText = taunts[tauntIndex];
+}
+
+
+    function moveNo(btn) {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function finalYes() {
+      document.getElementById("card").innerHTML = `
+        <h1>Correct Answer 💘</h1>
+        <p>I love you.</p>
+        <div class="heart">🥰</div>
+      `;
+    }
+function teleportNo(btn) {
+  const card = document.getElementById("card");
+  const cardRect = card.getBoundingClientRect();
+
+  const maxX = cardRect.width - btn.offsetWidth;
+  const maxY = cardRect.height - btn.offsetHeight;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+
+    start();
+  </script>
+
+</body>
+</html>
