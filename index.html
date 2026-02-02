@@ -2,50 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Valentine.exe ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brielle Trivia 💖</title>
+
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(135deg, #ff758c, #ff7eb3);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Segoe UI", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .card {
       background: white;
-      padding: 40px;
-      border-radius: 25px;
-      width: 420px;
+      padding: 32px;
+      border-radius: 22px;
+      width: 92%;
+      max-width: 420px;
       text-align: center;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
     }
 
     h1 {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     p {
       font-size: 18px;
-      margin-bottom: 25px;
+      margin-bottom: 22px;
     }
 
     button {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       margin: 8px 0;
       font-size: 16px;
-      border-radius: 30px;
+      border-radius: 999px;
       border: none;
       cursor: pointer;
       background-color: #f1f1f1;
-      transition: 0.2s;
+      transition: transform 0.15s ease, background-color 0.15s ease;
     }
 
     button:hover {
       background-color: #ffe0e8;
+      transform: scale(1.02);
+    }
+
+    button:disabled {
+      cursor: default;
+      transform: none;
     }
 
     .correct {
@@ -56,228 +65,128 @@
       background-color: #ffb3c1 !important;
     }
 
-    .yes {
-      background-color: #ff4d6d;
-      color: white;
-    }
-
-    .no {
-      background-color: #ccc;
-      position: relative;
-    }
-
     .heart {
-      font-size: 40px;
+      font-size: 42px;
       animation: float 2s infinite;
+      margin-bottom: 12px;
     }
 
     @keyframes float {
       0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
       100% { transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <div class="card" id="card"></div>
+<div class="card" id="card"></div>
 
-  <script>
-    let currentQuestion = 0;
+<script>
+  let currentQuestion = 0;
 
-    const questions = [
-      {
-        question: "What animal can sleep standing up?",
-        answers: ["Horse", "Dog", "Rhino", "Kangaroo"],
-        correct: 0
-      },
-        {
-        question: "What’s the most streamed song of all time (as of recent years)?",
-        answers: ["Despacito", "Mr Brightside", "Shape Of You", "Blinding Lights"],
-        correct: 3
-      },
-       {
-        question: "How many hearts does an octopus have?",
-        answers: ["1", "2", "3", "4"],
-        correct: 2
-      },
-      {
-        question: "In Inception, what object is Cobb’s totem?",
-        answers: ["Dice", "Spinning Top", "Chess piece", "Coin"],
-        correct: 1
-      },
-       {
-        question: "What movie won Best Picture in 2010?",
-        answers: ["The Hurt Locker", "Avatar", "Inception", "Black Swan"],
-        correct: 0
-      },
-       {
-        question: "Which NHL jersey number is associated with Wayne Gretzky?",
-        answers: ["99", "7", "87", "66"],
-        correct: 0
-      },
-{
-  question: "In The Dark Knight, what is the Joker’s first line of dialogue?",
-  answers: [
-    "Why so serious?",
-    "You wanna know how I got these scars?",
-    "No, I kill the bus driver.",
-    "Let’s put a smile on that face."
-  ],
-  correct: 2
-}
-
-    ];
-
-    function start() {
-      document.getElementById("card").innerHTML = `
-        <h1>Welcome, Brielle 💖</h1>
-        <p>Before proceeding…<br>You must prove you know your boyfriend.</p>
-        <button class="yes" onclick="loadQuestion()">Start the Challenge</button>
-      `;
+  const questions = [
+    {
+      question: "What animal can sleep standing up?",
+      answers: ["Horse", "Dog", "Rhino", "Kangaroo"],
+      correct: 0
+    },
+    {
+      question: "What’s the most streamed song of all time (as of recent years)?",
+      answers: ["Despacito", "Mr Brightside", "Shape Of You", "Blinding Lights"],
+      correct: 3
+    },
+    {
+      question: "How many hearts does an octopus have?",
+      answers: ["1", "2", "3", "4"],
+      correct: 2
+    },
+    {
+      question: "In Inception, what object is Cobb’s totem?",
+      answers: ["Dice", "Spinning Top", "Chess piece", "Coin"],
+      correct: 1
+    },
+    {
+      question: "What movie won Best Picture in 2010?",
+      answers: ["The Hurt Locker", "Avatar", "Inception", "Black Swan"],
+      correct: 0
+    },
+    {
+      question: "Which NHL jersey number is associated with Wayne Gretzky?",
+      answers: ["99", "7", "87", "66"],
+      correct: 0
+    },
+    {
+      question: "In The Dark Knight, what is the Joker’s first line of dialogue?",
+      answers: [
+        "Why so serious?",
+        "You wanna know how I got these scars?",
+        "No, I kill the bus driver.",
+        "Let’s put a smile on that face."
+      ],
+      correct: 2
     }
+  ];
 
-    function loadQuestion() {
-      const q = questions[currentQuestion];
-      let buttons = "";
+  function start() {
+    document.getElementById("card").innerHTML = `
+      <div class="heart">💖</div>
+      <h1>Welcome, Brielle</h1>
+      <p>A quick trivia challenge made just for you.</p>
+      <button onclick="loadQuestion()">Start Trivia</button>
+    `;
+  }
 
-      q.answers.forEach((answer, index) => {
-        buttons += `<button onclick="checkAnswer(${index}, this)">${answer}</button>`;
-      });
+  function loadQuestion() {
+    const q = questions[currentQuestion];
+    let buttons = "";
 
-      document.getElementById("card").innerHTML = `
-        <h1>Question ${currentQuestion + 1} / ${questions.length}</h1>
-        <p>${q.question}</p>
-        ${buttons}
-      `;
+    q.answers.forEach((answer, index) => {
+      buttons += `<button onclick="checkAnswer(${index}, this)">${answer}</button>`;
+    });
+
+    document.getElementById("card").innerHTML = `
+      <h1>Question ${currentQuestion + 1} / ${questions.length}</h1>
+      <p>${q.question}</p>
+      ${buttons}
+    `;
+  }
+
+  function checkAnswer(index, btn) {
+    const q = questions[currentQuestion];
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach(b => b.disabled = true);
+
+    if (index === q.correct) {
+      btn.classList.add("correct");
+      setTimeout(() => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          loadQuestion();
+        } else {
+          finish();
+        }
+      }, 700);
+    } else {
+      btn.classList.add("wrong");
+      setTimeout(() => {
+        currentQuestion = 0;
+        start();
+      }, 900);
     }
+  }
 
-    function checkAnswer(index, btn) {
-      const q = questions[currentQuestion];
-      const buttons = document.querySelectorAll("button");
+  function finish() {
+    document.getElementById("card").innerHTML = `
+      <div class="heart">🥰</div>
+      <h1>Perfect Score Energy</h1>
+      <p>You crushed it.<br>This page is officially yours.</p>
+      <button onclick="start()">Play Again</button>
+    `;
+  }
 
-      buttons.forEach(b => b.disabled = true);
-
-      if (index === q.correct) {
-        btn.classList.add("correct");
-        setTimeout(() => {
-          currentQuestion++;
-          if (currentQuestion < questions.length) {
-            loadQuestion();
-          } else {
-            finalScreen();
-          }
-        }, 700);
-      } else {
-        btn.classList.add("wrong");
-
-        setTimeout(() => {
-          currentQuestion = 0;
-          start();
-        }, 900);
-      }
-    }
-
-    function finalScreen() {
-      document.getElementById("card").innerHTML = `
-        <div class="heart">❤️</div>
-        <h1>Impressive.</h1>
-        <p>You clearly know me…<br>so here’s the real question.</p>
-        <button class="yes" onclick="askValentine()">Continue</button>
-      `;
-    }
-
-  function askValentine() {
-  document.getElementById("card").innerHTML = `
-    <h1>Will you be my Valentine?</h1>
-    <p>Not just today — but every day.</p>
-    <button class="yes" onclick="finalYes()">Yes</button>
-    <button class="no" id="noBtn">No</button>
-  `;
-
-  const noBtn = document.getElementById("noBtn");
-
-  document.addEventListener("mousemove", (e) => {
-    const rect = noBtn.getBoundingClientRect();
-
-    const distanceX = Math.abs(e.clientX - (rect.left + rect.width / 2));
-    const distanceY = Math.abs(e.clientY - (rect.top + rect.height / 2));
-
-    if (distanceX < 90 && distanceY < 45) {
-      dodgeAndTaunt(noBtn);
-    }
-  });
-}
-
-let tauntCount = 0;
-
-const taunts = [
-  "Nice try 😌",
-  "Absolutely not",
-  "You know better",
-  "That’s the wrong button",
-  "Be serious right now",
-  "Try again 😏",
-  "Bold of you to try",
-  "Incorrect choice",
-  "Denied ❌",
-  "We both know the answer",
-  "Sorry... not sorry",
-  "Not todayyyyy"
-];
-
-
-function dodgeAndTaunt(btn) {
-  tauntCount++;
-
-  const card = document.getElementById("card");
-  const cardRect = card.getBoundingClientRect();
-
-  const maxX = cardRect.width - btn.offsetWidth;
-  const maxY = cardRect.height - btn.offsetHeight;
-
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
-  btn.style.transform = `translate(${x}px, ${y}px)`;
-
-  // Escalate taunts
-  let tauntIndex = Math.min(tauntCount - 1, taunts.length - 1);
-  btn.innerText = taunts[tauntIndex];
-}
-
-
-    function moveNo(btn) {
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 200 - 100;
-      btn.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    function finalYes() {
-      document.getElementById("card").innerHTML = `
-        <h1>Correct Answer 💘</h1>
-        <p>I love you.</p>
-        <div class="heart">🥰</div>
-      `;
-    }
-function teleportNo(btn) {
-  const card = document.getElementById("card");
-  const cardRect = card.getBoundingClientRect();
-
-  const maxX = cardRect.width - btn.offsetWidth;
-  const maxY = cardRect.height - btn.offsetHeight;
-
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
-  btn.style.transform = `translate(${x}px, ${y}px)`;
-}
-
-
-    start();
-  </script>
+  start();
+</script>
 
 </body>
 </html>
-
-
