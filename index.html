@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brielle's Vacation Plan</title>
+<title>Croatia Trip Portal</title>
 
 <style>
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #6dd5fa, #2980b9);
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
   display: flex;
   justify-content: center;
   padding: 20px;
@@ -18,48 +18,51 @@ body {
 .card {
   background: white;
   width: 100%;
-  max-width: 650px;
-  padding: 30px;
+  max-width: 750px;
+  padding: 35px;
   border-radius: 25px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
 }
 
 h1 {
+  text-align: center;
   margin-top: 0;
 }
 
 .subtitle {
+  text-align: center;
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .countdown {
+  text-align: center;
   font-size: 26px;
   font-weight: bold;
-  margin: 25px 0;
+  margin-bottom: 35px;
   color: #ff4d6d;
 }
 
 .section {
-  text-align: left;
-  margin-top: 35px;
+  margin-top: 30px;
 }
 
 .section h2 {
-  margin-bottom: 12px;
   border-bottom: 2px solid #eee;
-  padding-bottom: 6px;
+  padding-bottom: 8px;
 }
 
-.activity {
+.flight {
   background: #f4f8ff;
-  padding: 12px;
-  border-radius: 12px;
-  margin: 8px 0;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 footer {
+  text-align: center;
   margin-top: 40px;
   font-size: 14px;
   opacity: 0.7;
@@ -71,64 +74,80 @@ footer {
 
 <div class="card">
 
-  <h1>🌴 Miami Getaway 🌴</h1>
+  <h1>🇭🇷 Croatia Getaway 🇭🇷</h1>
   <div class="subtitle">
-    March 20 – March 23, 2026<br>
-    A trip planned just for you 💖
+    May 1 – May 14, 2026<br>
+    Atlanta → Amsterdam → Dubrovnik<br>
+    Planned just for us ❤️
   </div>
 
   <div class="countdown" id="countdown">
-    Loading countdown...
+    Calculating departure...
   </div>
 
   <div class="section">
-    <h2>📅 Day 1 – Arrival</h2>
-    <div class="activity">✈️ Morning flight to Miami</div>
-    <div class="activity">🏨 Check into hotel</div>
-    <div class="activity">🌅 Oceanfront sunset walk</div>
-    <div class="activity">🍽️ Dinner reservation</div>
+    <h2>✈️ Departure – May 1, 2026</h2>
+
+    <div class="flight">
+      <strong>DL 070 – Delta Air Lines</strong><br>
+      Booking Ref: HVHZ7W<br>
+      Atlanta (Hartsfield-Jackson Int) – Terminal I<br>
+      01 MAY, 3:20 PM<br>
+      →<br>
+      Amsterdam (Schiphol Airport)<br>
+      02 MAY, 6:00 AM<br>
+      Duration: 8h 40m (Non-stop)<br>
+      Seats: 32C & 32D<br>
+      Status: Confirmed
+    </div>
+
+    <div class="flight">
+      <strong>DL 9315 – Delta / KLM (KL 1977)</strong><br>
+      Amsterdam (Schiphol Airport)<br>
+      02 MAY, 10:15 AM<br>
+      →<br>
+      Dubrovnik Airport<br>
+      02 MAY, 12:35 PM<br>
+      Duration: 2h 20m (Non-stop)<br>
+      Status: Confirmed
+    </div>
   </div>
 
   <div class="section">
-    <h2>📅 Day 2 – Explore</h2>
-    <div class="activity">☕ Coffee at a cute local café</div>
-    <div class="activity">🏖️ Beach day + relax time</div>
-    <div class="activity">📸 Photos + exploring Wynwood</div>
-    <div class="activity">🌃 Rooftop drinks</div>
-  </div>
+    <h2>🏖️ Return – May 14, 2026</h2>
 
-  <div class="section">
-    <h2>📅 Day 3 – Adventure</h2>
-    <div class="activity">🌊 Morning boat excursion</div>
-    <div class="activity">🛍️ Shopping & exploring</div>
-    <div class="activity">🍷 Special final dinner</div>
-  </div>
-
-  <div class="section">
-    <h2>📅 Day 4 – Departure</h2>
-    <div class="activity">🥞 Breakfast together</div>
-    <div class="activity">✈️ Flight home</div>
+    <div class="flight">
+      <strong>DL 075 – Delta Air Lines</strong><br>
+      Booking Ref: HVHZ7W<br>
+      Amsterdam (Schiphol Airport)<br>
+      14 MAY, 1:20 PM<br>
+      →<br>
+      Atlanta (Hartsfield-Jackson Int) – Terminal I<br>
+      14 MAY, 4:55 PM<br>
+      Duration: 9h 35m (Non-stop)<br>
+      Seats: 31F & 31D<br>
+      Status: Confirmed
+    </div>
   </div>
 
   <footer>
-    Counting down the days until we make memories ❤️
+    Counting down the days until Dubrovnik sunsets 🌅
   </footer>
 
 </div>
 
 <script>
-// SET YOUR TRIP DATE HERE
-// Format: new Date(YEAR, MONTH-1, DAY, HOUR, MINUTE, SECOND)
-const tripDate = new Date(2026, 2, 20, 8, 0, 0); 
-// March = 2 (months start at 0)
+// Departure: May 1, 2026 at 3:20 PM (Atlanta local time)
+const departureDate = new Date(2026, 4, 1, 15, 20, 0);
+// May = 4 (months start at 0)
 
 function updateCountdown() {
   const now = new Date();
-  const diff = tripDate - now;
+  const diff = departureDate - now;
 
   if (diff <= 0) {
     document.getElementById("countdown").innerHTML =
-      "🎉 We're officially on vacation!!! 🎉";
+      "✈️ Wheels up — we're on our way to Croatia! 🇭🇷";
     return;
   }
 
@@ -150,4 +169,3 @@ updateCountdown();
 
 </body>
 </html>
-
