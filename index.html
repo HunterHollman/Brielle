@@ -3,242 +3,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our 2026 Europe Adventure</title>
+<title>Croatia Trip Portal</title>
 
 <style>
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #141e30, #243b55);
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
   padding: 20px;
-  color: white;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
+.card {
+  background: white;
+  width: 100%;
+  max-width: 750px;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 10px;
+  margin-top: 0;
 }
 
 .subtitle {
   text-align: center;
-  margin-bottom: 40px;
-  opacity: 0.8;
-}
-
-.country {
-  background: white;
-  color: black;
-  padding: 25px;
-  border-radius: 20px;
-  margin-bottom: 35px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-.country h2 {
-  margin-top: 0;
-}
-
-.section {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 12px;
-  background: #f4f6fb;
-}
-
-.section-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.placeholder {
-  opacity: 0.6;
-  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 25px;
 }
 
 .countdown {
   text-align: center;
-  font-size: 22px;
-  margin-bottom: 40px;
+  font-size: 26px;
   font-weight: bold;
+  margin-bottom: 35px;
+  color: #ff4d6d;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.section h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+}
+
+.flight {
+  background: #f4f8ff;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.7;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-<h1>🌍 Our 2026 Europe Adventure</h1>
-<div class="subtitle">
-May 2 – May 14, 2026<br>
-A trip built just for us ❤️
+  <h1>🇭🇷 Croatia Getaway 🇭🇷</h1>
+  <div class="subtitle">
+    May 1 – May 14, 2026<br>
+    Atlanta → Amsterdam → Dubrovnik<br>
+    Planned just for us ❤️
+  </div>
+  
+<div style="text-align:center; margin-bottom:25px;">
+  <a href="activities.html" 
+     style="background:#ff4d6d; color:white; padding:12px 20px; 
+     border-radius:20px; text-decoration:none; font-weight:bold;">
+     View Our Dubrovnik Activities →
+  </a>
+</div>
+  <div style="text-align:center; margin-bottom:25px;">
+  <a href="schedule.html" 
+     style="background:#1e3c72; color:white; padding:12px 20px; 
+     border-radius:20px; text-decoration:none; font-weight:bold; margin-left:10px;">
+     Full Event Schedule →
+  </a>
 </div>
 
-<div class="countdown" id="countdown">
-Counting down to takeoff...
-</div>
 
-<!-- CROATIA -->
-<div class="country">
-<h2>🇭🇷 Croatia – Dubrovnik</h2>
-<p>May 2 – May 5</p>
+  <div class="countdown" id="countdown">
+    Calculating departure...
+  </div>
 
-<div class="section">
-<div class="section-title">✈ Travel Details</div>
-Delta → Amsterdam → Dubrovnik<br>
-Seats: 32C & 32D<br>
-Booking Ref: HVHZ7W
-</div>
+  <div class="section">
+    <h2>✈️ Departure – May 1, 2026</h2>
 
-<div class="section">
-<div class="section-title">🏨 Stay</div>
-Sun Gardens Dubrovnik
-</div>
+    <div class="flight">
+      <strong>DL 070 – Delta Air Lines</strong><br>
+      Booking Ref: HVHZ7W<br>
+      Atlanta (Hartsfield-Jackson Int) – Terminal I<br>
+      01 MAY, 3:20 PM<br>
+      →<br>
+      Amsterdam (Schiphol Airport)<br>
+      02 MAY, 6:00 AM<br>
+      Duration: 8h 40m (Non-stop)<br>
+      Seats: 32C & 32D<br>
+      Status: Confirmed
+    </div>
 
-<div class="section">
-<div class="section-title">🎯 Scheduled Activities</div>
-ATV Tour – May 3<br>
-Old Town Food & Wine Tour – May 4
-</div>
+    <div class="flight">
+      <strong>DL 9315 – Delta / KLM (KL 1977)</strong><br>
+      Amsterdam (Schiphol Airport)<br>
+      02 MAY, 10:15 AM<br>
+      →<br>
+      Dubrovnik Airport<br>
+      02 MAY, 12:35 PM<br>
+      Duration: 2h 20m (Non-stop)<br>
+      Status: Confirmed
+    </div>
+  </div>
 
-<div class="section placeholder">
-Tickets & confirmations will appear here.
-</div>
-</div>
+  <div class="section">
+    <h2>🏖️ Return – May 14, 2026</h2>
 
-<!-- MONTENEGRO -->
-<div class="country">
-<h2>🇲🇪 Montenegro</h2>
-<p>May 5 – May 6</p>
+    <div class="flight">
+      <strong>DL 075 – Delta Air Lines</strong><br>
+      Booking Ref: HVHZ7W<br>
+      Amsterdam (Schiphol Airport)<br>
+      14 MAY, 1:20 PM<br>
+      →<br>
+      Atlanta (Hartsfield-Jackson Int) – Terminal I<br>
+      14 MAY, 4:55 PM<br>
+      Duration: 9h 35m (Non-stop)<br>
+      Seats: 31F & 31D<br>
+      Status: Confirmed
+    </div>
+  </div>
 
-<div class="section">
-<div class="section-title">🚗 Travel</div>
-Transportation from Dubrovnik → Montenegro<br>
-<em>(Add ticket/transfer details here)</em>
-</div>
-
-<div class="section">
-<div class="section-title">🏨 Stay</div>
-Hotel details coming soon
-</div>
-
-<div class="section">
-<div class="section-title">🎯 Activities</div>
-Planned experiences coming soon
-</div>
-
-<div class="section placeholder">
-Tickets & confirmations will appear here.
-</div>
-</div>
-
-<!-- VIENNA -->
-<div class="country">
-<h2>🇦🇹 Vienna</h2>
-<p>May 6 – May 9</p>
-
-<div class="section">
-<div class="section-title">🚆 Travel</div>
-Train from Montenegro region → Vienna<br>
-<em>(Add train ticket info here)</em>
-</div>
-
-<div class="section">
-<div class="section-title">🏨 Stay</div>
-3 Nights in Vienna<br>
-Hotel TBD
-</div>
-
-<div class="section">
-<div class="section-title">🎯 Activities</div>
-Concerts? Schönbrunn Palace?<br>
-Coffee houses & wine bars?
-</div>
-
-<div class="section placeholder">
-Tickets & confirmations will appear here.
-</div>
-</div>
-
-<!-- FLORENCE -->
-<div class="country">
-<h2>🇮🇹 Florence</h2>
-<p>May 9 – May 11</p>
-
-<div class="section">
-<div class="section-title">✈ Travel</div>
-Flight Vienna → Florence<br>
-<em>(Add flight confirmation here)</em>
-</div>
-
-<div class="section">
-<div class="section-title">🏨 Stay</div>
-2 Nights in Florence<br>
-Hotel TBD
-</div>
-
-<div class="section">
-<div class="section-title">🎯 Activities</div>
-Tuscan wine tour?<br>
-Duomo climb?<br>
-Cooking class?
-</div>
-
-<div class="section placeholder">
-Tickets & confirmations will appear here.
-</div>
-</div>
-
-<!-- AMSTERDAM -->
-<div class="country">
-<h2>🇳🇱 Amsterdam</h2>
-<p>May 11 – May 14</p>
-
-<div class="section">
-<div class="section-title">✈ Travel</div>
-Flight Florence → Amsterdam<br>
-Seats: 31F & 31D
-</div>
-
-<div class="section">
-<div class="section-title">🏨 Stay</div>
-2 Nights in Amsterdam<br>
-Hotel TBD
-</div>
-
-<div class="section">
-<div class="section-title">🎯 Activities</div>
-Canal cruise?<br>
-Anne Frank House?<br>
-Van Gogh Museum?
-</div>
-
-<div class="section placeholder">
-Tickets & confirmations will appear here.
-</div>
-</div>
+  <footer>
+    Counting down the days until Dubrovnik sunsets 🌅
+  </footer>
 
 </div>
 
 <script>
-const tripDate = new Date("May 1, 2026 15:20:00").getTime();
-const countdownEl = document.getElementById("countdown");
+// Departure: May 1, 2026 at 3:20 PM (Atlanta local time)
+const departureDate = new Date(2026, 4, 1, 15, 20, 0);
+// May = 4 (months start at 0)
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = tripDate - now;
+function updateCountdown() {
+  const now = new Date();
+  const diff = departureDate - now;
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "✈️ Wheels up — we're on our way to Croatia! 🇭🇷";
+    return;
+  }
 
-  countdownEl.innerHTML = `✈ ${days} days and ${hours} hours until departure`;
-}, 1000);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("countdown").innerHTML =
+    days + " days " +
+    hours + " hrs " +
+    minutes + " mins " +
+    seconds + " sec until takeoff ✈️";
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
 
 </body>
 </html>
+
+
+
