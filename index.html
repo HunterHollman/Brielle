@@ -1,192 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brielle Trivia 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brielle's Vacation Plan</title>
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #6dd5fa, #2980b9);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
 
-    .card {
-      background: white;
-      padding: 32px;
-      border-radius: 22px;
-      width: 92%;
-      max-width: 420px;
-      text-align: center;
-      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
-    }
+.card {
+  background: white;
+  width: 100%;
+  max-width: 650px;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  text-align: center;
+}
 
-    h1 {
-      margin-bottom: 12px;
-    }
+h1 {
+  margin-top: 0;
+}
 
-    p {
-      font-size: 18px;
-      margin-bottom: 22px;
-    }
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 
-    button {
-      width: 100%;
-      padding: 14px;
-      margin: 8px 0;
-      font-size: 16px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      background-color: #f1f1f1;
-      transition: transform 0.15s ease, background-color 0.15s ease;
-    }
+.countdown {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 25px 0;
+  color: #ff4d6d;
+}
 
-    button:hover {
-      background-color: #ffe0e8;
-      transform: scale(1.02);
-    }
+.section {
+  text-align: left;
+  margin-top: 35px;
+}
 
-    button:disabled {
-      cursor: default;
-      transform: none;
-    }
+.section h2 {
+  margin-bottom: 12px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 6px;
+}
 
-    .correct {
-      background-color: #a3f7bf !important;
-    }
+.activity {
+  background: #f4f8ff;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 8px 0;
+}
 
-    .wrong {
-      background-color: #ffb3c1 !important;
-    }
-
-    .heart {
-      font-size: 42px;
-      animation: float 2s infinite;
-      margin-bottom: 12px;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-      100% { transform: translateY(0); }
-    }
-  </style>
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+</style>
 </head>
+
 <body>
 
-<div class="card" id="card"></div>
+<div class="card">
+
+  <h1>🌴 Miami Getaway 🌴</h1>
+  <div class="subtitle">
+    March 20 – March 23, 2026<br>
+    A trip planned just for you 💖
+  </div>
+
+  <div class="countdown" id="countdown">
+    Loading countdown...
+  </div>
+
+  <div class="section">
+    <h2>📅 Day 1 – Arrival</h2>
+    <div class="activity">✈️ Morning flight to Miami</div>
+    <div class="activity">🏨 Check into hotel</div>
+    <div class="activity">🌅 Oceanfront sunset walk</div>
+    <div class="activity">🍽️ Dinner reservation</div>
+  </div>
+
+  <div class="section">
+    <h2>📅 Day 2 – Explore</h2>
+    <div class="activity">☕ Coffee at a cute local café</div>
+    <div class="activity">🏖️ Beach day + relax time</div>
+    <div class="activity">📸 Photos + exploring Wynwood</div>
+    <div class="activity">🌃 Rooftop drinks</div>
+  </div>
+
+  <div class="section">
+    <h2>📅 Day 3 – Adventure</h2>
+    <div class="activity">🌊 Morning boat excursion</div>
+    <div class="activity">🛍️ Shopping & exploring</div>
+    <div class="activity">🍷 Special final dinner</div>
+  </div>
+
+  <div class="section">
+    <h2>📅 Day 4 – Departure</h2>
+    <div class="activity">🥞 Breakfast together</div>
+    <div class="activity">✈️ Flight home</div>
+  </div>
+
+  <footer>
+    Counting down the days until we make memories ❤️
+  </footer>
+
+</div>
 
 <script>
-  let currentQuestion = 0;
+// SET YOUR TRIP DATE HERE
+// Format: new Date(YEAR, MONTH-1, DAY, HOUR, MINUTE, SECOND)
+const tripDate = new Date(2026, 2, 20, 8, 0, 0); 
+// March = 2 (months start at 0)
 
-  const questions = [
-    {
-      question: "What animal can sleep standing up?",
-      answers: ["Horse", "Dog", "Rhino", "Kangaroo"],
-      correct: 0
-    },
-    {
-      question: "What’s the most streamed song of all time (as of recent years)?",
-      answers: ["Despacito", "Mr Brightside", "Shape Of You", "Blinding Lights"],
-      correct: 3
-    },
-    {
-      question: "How many hearts does an octopus have?",
-      answers: ["1", "2", "3", "4"],
-      correct: 2
-    },
-    {
-      question: "In Inception, what object is Cobb’s totem?",
-      answers: ["Dice", "Spinning Top", "Chess piece", "Coin"],
-      correct: 1
-    },
-    {
-      question: "What movie won Best Picture in 2010?",
-      answers: ["The Hurt Locker", "Avatar", "Inception", "Black Swan"],
-      correct: 0
-    },
-    {
-      question: "Which NHL jersey number is associated with Wayne Gretzky?",
-      answers: ["99", "7", "87", "66"],
-      correct: 0
-    },
-    {
-      question: "In The Dark Knight, what is the Joker’s first line of dialogue?",
-      answers: [
-        "Why so serious?",
-        "You wanna know how I got these scars?",
-        "No, I kill the bus driver.",
-        "Let’s put a smile on that face."
-      ],
-      correct: 2
-    }
-  ];
+function updateCountdown() {
+  const now = new Date();
+  const diff = tripDate - now;
 
-  function start() {
-    document.getElementById("card").innerHTML = `
-      <div class="heart">💖</div>
-      <h1>Welcome, Brielle</h1>
-      <p>A quick trivia challenge made just for you.</p>
-      <button onclick="loadQuestion()">Start Trivia</button>
-    `;
+  if (diff <= 0) {
+    document.getElementById("countdown").innerHTML =
+      "🎉 We're officially on vacation!!! 🎉";
+    return;
   }
 
-  function loadQuestion() {
-    const q = questions[currentQuestion];
-    let buttons = "";
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
-    q.answers.forEach((answer, index) => {
-      buttons += `<button onclick="checkAnswer(${index}, this)">${answer}</button>`;
-    });
+  document.getElementById("countdown").innerHTML =
+    days + " days " +
+    hours + " hrs " +
+    minutes + " mins " +
+    seconds + " sec until takeoff ✈️";
+}
 
-    document.getElementById("card").innerHTML = `
-      <h1>Question ${currentQuestion + 1} / ${questions.length}</h1>
-      <p>${q.question}</p>
-      ${buttons}
-    `;
-  }
-
-  function checkAnswer(index, btn) {
-    const q = questions[currentQuestion];
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach(b => b.disabled = true);
-
-    if (index === q.correct) {
-      btn.classList.add("correct");
-      setTimeout(() => {
-        currentQuestion++;
-        if (currentQuestion < questions.length) {
-          loadQuestion();
-        } else {
-          finish();
-        }
-      }, 700);
-    } else {
-      btn.classList.add("wrong");
-      setTimeout(() => {
-        currentQuestion = 0;
-        start();
-      }, 900);
-    }
-  }
-
-  function finish() {
-    document.getElementById("card").innerHTML = `
-      <div class="heart">🥰</div>
-      <h1>Perfect Score Energy</h1>
-      <p>You crushed it.<br>This page is officially yours.</p>
-      <button onclick="start()">Play Again</button>
-    `;
-  }
-
-  start();
+setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
 
 </body>
 </html>
+
